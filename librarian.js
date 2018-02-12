@@ -12,33 +12,50 @@ var library = [
 
 /* Task 1 */
 function getBookTitle( index ){
- 
+
 return library[index].title;
 }
 
-console.log(getBookTitle(3));
+console.log(getBookTitle(2));
+console.log(getBookTitle(5));
+
 
 /* Task 3 */
 function addBook( book ){
 library.push(book);
 return library;
- 
+
 }
 
-var newBook = {title: "The Lessons of History",year:"1968 ",author:" Will Durant and Ariel Durant.",publisher:"Prothoma"};
+var newBook = {title: "Wireless communications and networking",year:"2009 ",author:" Vijay K. Garg",publisher:"Morgan Kaufmann"};
 console.log(addBook(newBook));
 
 /* Task 4 */
 function bookByAuthor(){
   //add code
+  library.sort(function(a,b)
+{
+return (b.author) -(a.author);
+});
+  return library;
 }
 
 console.log(bookByAuthor());
 
 /* Task 5 */
-function findByTitle( title ){
+function findByTitle(title)
+{
   //add code
+     for(var i=0; i<library.length; i++)
+ {
+	   var list = [];
+  library.map(function(v,i){
+    if(v.title.toLowerCase().includes(title)) list.push(v);
+  });
+  return list;
+  }
 }
+
 
 console.log(findByTitle("man"));
 console.log(findByTitle("myth"));
